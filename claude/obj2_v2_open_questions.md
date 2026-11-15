@@ -2,21 +2,14 @@
 
 Questions put to Sara in earlier sessions that she has not answered yet. Each has a plain explanation, why it matters, and Claude's suggestion. When she answers, the answer and date go beside the question and the item moves to "Answered".
 
-## Needed before Figure 2 is drafted (asked 15 Nov, evening)
+## Open now (15 Nov, late)
 
 | # | Question | Why it matters | Suggestion |
 |---|---|---|---|
-| G1 | Draw the five real_eval rows only from habitat-blanked stacks? | Every BNM product and the BNM row use the blank habitat input; the same input on every row keeps the rows comparable. | yes |
-| G2 | Which species-window is the BNM row: drawn by the same fixed seed among rows with recorded class 2-5 in coastal windows? | A coastal window shows the land mask; class 2-5 is the sparse end the paper is about and still gives a readable map. | yes |
-| G3 | New tools and tests delivered through the GitHub repo (git pull) instead of the project? | The project grows by about 30-40 KB per step and is near its limit. | yes |
-
-## Asked again after the plain explanation (15 Nov, evening)
-
-| # | Question | Suggestion |
-|---|---|---|
-| P3 | B-0 (habitat shown against blanked, on simulation) in the supplement | yes: it shows the BNM products' blank mode is calibrated and that habitat cannot fix the 1-cell AOO excess |
-| R1 | Beside the product at 0-3 records: (a) print the test-half bias (counts ran 1.25-1.56 times too high), (b) also an adjusted AOO = AOO / that ratio, labelled an assumption, (c) neither | (a) and (b) |
-| R2 | Report the share of each species' land-only AOO that lies on tetrads nobody surveyed (from P4d, no new run) | yes |
+| G1 | (asked again with a plain explanation) The five real_eval rows are simulation only. In half of the simulated evaluation stacks the model was given the habitat layer, in half it was blank. Draw the rows from the blank-habitat stacks? | The BNM row and every BNM product use the blank input, so blank rows compare like with like; shown-habitat rows would show the model with information it never gets on BNM. | blank |
+| H1 | Run habitat check B-1 (does the UKCEH Land Cover Map, as one habitat axis, carry the signal the model was trained on?) before Figure 2? | Sara wants the missing BNM habitat fixed first if a reliable, unbiased fix exists; B-1 is CPU only, uses the fit half and files already on her machine, and stops the habitat route early if the signal is weak. Figure 2's simulation rows do not depend on it. | yes, B-1 first, plan as written in results log part 4 step 41 |
+| S1 | Make project space: remove project copies of code files now in the repo from her machine (her run versions; 10 of 10 spot-checked md5s equal the md5s logged at her runs) | The project is at about 89%; code is most of it; the repo keeps every version. | yes, after a full listing of what would go |
+| P3 | B-0 in the supplement | Sara wants more testing first (B-1, B-2) | ask after B-1 / B-2 |
 
 ## Later
 
@@ -34,6 +27,8 @@ Claude's suggestion from the 14 Nov session, kept at her request: "For this pape
 K (more samples for sparse stacks) and S (level correction by predicted size, with its tercile question) wait. T showed the gap left is in holes the model orders strictly, which K cannot change; S fixes no root cause.
 
 ## Answered
+
+- 15 Nov (late): G2 yes (BNM row drawn by the fixed seed from species with 2-5 records in a coastal window). G3 yes (new tools through the GitHub repo). R1 options (a) and (b): print the test-half bias beside the product at 0-3 records, and an adjusted AOO = AOO / ratio labelled as an assumption. Sara pushed her code folders to the repo (commit 462314a; obj1_v2 tools, tests, new_code; obj2_v2 tools, tests).
 
 - 15 Nov (evening): F1 real_eval, labelled "display reading 3, no scores", species drawn by a seed fixed before any file opens, plus one BNM row (records, samples, posterior, land mask). F2 one species per recorded class. F3 Figure 2 and the BNM species pages first (as v1), then the rest. F5 movie: the model turning noise into a map for one species (the sampler saves its steps). P1 Ecological Informatics. P4 one paper. R3 there is no v3; v2 is the final version (root causes beyond v2 are stated as limits and future work).
 - 15 Nov (evening): project space: files verified on GitHub removed from the project (list in README.md).
