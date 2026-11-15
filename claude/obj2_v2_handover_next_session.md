@@ -1,4 +1,4 @@
-# Objective 2 v2: handover for the next session (15 Nov 2026: T run, rule NO; K and S on hold; figures next; notes moved to the private GitHub repo)
+# Objective 2 v2: handover for the next session (15 Nov 2026 evening: K and S on hold; Figure 2 planned, waiting for G1-G3; project files on GitHub removed from the project)
 
 This file was shortened on 15 Nov: the step-by-step history (steps 1-46) lives in the results logs and READMEs below, so it is not repeated here.
 
@@ -14,13 +14,14 @@ Read first, in this order: obj2_v2/README_stage_H_part2.md (status table and run
 - Paper (Sara 14 Nov): one paper for all of v2; v1 never submitted; figures before text (Figure 2 posterior samples, figure set, BNM HTML profiles as step18 without EOO, 3D trace movies); questions of steps 38-39 on figures still open.
 - 15 Nov: Sara asked for rare-end options without retraining (step 45) and said yes to T and S now, K only if T leaves a gap, yes to a sensitivity line (assumption, not a product). Rules written before any value (H rules part 2). Her "continue" read as yes to Q1-Q3 there (to be confirmed).
 - T: stage_t_tiebreak.py (27631419) with test_35 (fb884828); Sara's run 15 Nov: self-test 13 PASS, gates V0-V4 PASS, t_report.json 1305724a; rule NO. Ties close 38-65% of the sparse gap; class 1 and records 4-6 stay below B1 exact. T fixes no root cause and changes no AOO.
-- Sara 15 Nov: K and S on hold; T recorded as a report-only finding; figures next. Open questions listed in claude/obj2_v2_open_questions.md (F1-F3 needed before the figures).
+- Sara 15 Nov: K and S on hold; T recorded as a report-only finding. Figure answers: real_eval rows as "display reading 3, no scores", one species per recorded class, seed fixed first, plus one BNM row; Figure 2 and the BNM species pages (as v1) first; movie = denoising; journal Ecological Informatics; one paper; no v3 (v2 is final). Open questions: claude/obj2_v2_open_questions.md (G1-G3 before the Figure 2 draft; P3, R1, R2 asked again).
+- Project space (15 Nov): 17 files verified on GitHub removed from the project (list in the repo README); about 89% used after.
 
 ## Next steps
 
-1. Sara's answers to F1-F3 (open questions file); then the Figure 2 tool (Planning, then Draft with a sandbox test), reading v2 files only.
-2. Old IBM versions v2_1-v2_4 added to the repo from Sara's machine (block in the 15 Nov reply).
-3. K and S stay on hold unless Sara reopens them.
+1. Sara's answers to G1-G3; then the Figure 2 Draft: read stage_g5_predict.py, stage_g5_score.py (G5d files), stage_p4_2_eval_reading.py (real_eval marker), stage_p1/P2 and stage_p4_3 outputs for the BNM row; tool with a sandbox self-test on planted files.
+2. Then the BNM species pages: read step18_bnm_profiles.py (project root) for the v1 layout; EOO removed.
+3. If Sara says yes to the code push (G3 block), check each pushed file against its logged md5 before any project copy is removed.
 
 ## Rules that never change after a result
 

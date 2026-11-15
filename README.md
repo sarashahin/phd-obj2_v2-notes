@@ -22,3 +22,7 @@ Paths mirror the claude.ai project "object2_new_train_inpaint", so a path cited 
 ## Use
 
 On Sara's machine, first time: `git clone https://github.com/sarashahin/phd-obj2_v2-notes.git ~/phd-obj2_v2-notes`; after that `git -C ~/phd-obj2_v2-notes pull`.
+
+## Removed from the claude.ai project on 15 Nov 2026 (copies here only)
+
+claude/V9_review.md to claude/V16_review.md; obj1_v2/new_code/assembly_stepwise_ibm_v2_1.py to v2_4.py; claude/obj2_v2_results_log_H_part4.md, claude/obj2_v2_H_rules_part2.md, claude/obj2_v2_paper_plan.md, obj2_v2/README_stage_H_part2.md, obj2_v2/README_tests_part2.md. Each was checked to be on GitHub before it was removed.

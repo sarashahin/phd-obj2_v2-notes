@@ -2,43 +2,41 @@
 
 Questions put to Sara in earlier sessions that she has not answered yet. Each has a plain explanation, why it matters, and Claude's suggestion. When she answers, the answer and date go beside the question and the item moves to "Answered".
 
-## Needed before the figures start
+## Needed before Figure 2 is drafted (asked 15 Nov, evening)
 
 | # | Question | Why it matters | Suggestion |
 |---|---|---|---|
-| F1 | Figure 2 shows true maps beside the model's samples. Which simulated communities: real_val (the development set) or real_eval (the clean test set) as a labelled display reading? | real_val chose the training checkpoint and fitted the level correction, so its maps flatter the model. real_eval is where the scores come from; showing its truth again is a third look, but no number is computed or changed. | real_eval, labelled display reading: truth md5-logged first, no score computed |
-| F2 | Which species go in Figure 2: one species per recorded class (1, 2-5, 6-10, 11-20, 21-50), or the old v1 choice (5 random species of 12+ cells from one community)? | One per class shows how maps change with the number of records, which is the paper's grouping. A random seed fixed before any file opens stops picking a nice example. | one per recorded class, seed fixed first |
-| F3 | Order of work: Figure 2 for Axel, then the paper figure set, then the BNM species pages, then the movies? | Axel asked for Figure 2 first; the rest reuse its code. | yes |
+| G1 | Draw the five real_eval rows only from habitat-blanked stacks? | Every BNM product and the BNM row use the blank habitat input; the same input on every row keeps the rows comparable. | yes |
+| G2 | Which species-window is the BNM row: drawn by the same fixed seed among rows with recorded class 2-5 in coastal windows? | A coastal window shows the land mask; class 2-5 is the sparse end the paper is about and still gives a readable map. | yes |
+| G3 | New tools and tests delivered through the GitHub repo (git pull) instead of the project? | The project grows by about 30-40 KB per step and is near its limit. | yes |
 
-## Needed later, for the figures
+## Asked again after the plain explanation (15 Nov, evening)
 
-| # | Question | Why it matters | Suggestion |
-|---|---|---|---|
-| F4 | BNM species pages (v1 step18 layout, EOO removed): which species get a page, and is phenology kept? | Phenology needs the record months, which may not be in the P1 export. | a page per species with a P4-3 product row; phenology only if the months are in the export (checked read-only first) |
-| F5 | What do the 3D movies show: the IBM assembly in a few windows, the model turning noise into a map for one species, or both? | The assembly movie needs a trace option and reruns checked against the stored communities; the denoising movie needs one model run. | denoising first; the assembly movie only if Axel asks |
+| # | Question | Suggestion |
+|---|---|---|
+| P3 | B-0 (habitat shown against blanked, on simulation) in the supplement | yes: it shows the BNM products' blank mode is calibrated and that habitat cannot fix the 1-cell AOO excess |
+| R1 | Beside the product at 0-3 records: (a) print the test-half bias (counts ran 1.25-1.56 times too high), (b) also an adjusted AOO = AOO / that ratio, labelled an assumption, (c) neither | (a) and (b) |
+| R2 | Report the share of each species' land-only AOO that lies on tetrads nobody surveyed (from P4d, no new run) | yes |
 
-## Paper
+## Later
 
-| # | Question | Why it matters | Suggestion |
-|---|---|---|---|
-| P1 | Journal | Sets the word limit (Ecological Informatics: abstract 250, main text guideline 7,000, maximum 10,000, from V9_review; to recheck) | Ecological Informatics; Methods in Ecology and Evolution the other fit; a general-science journal not advised |
-| P2 | One sentence in the supplement that EOO was planned, scored at G5d, failed and was dropped? | The reported gates then match the logs. | yes |
-| P3 | B-0 (habitat shown against blanked) in the supplement? | It shows the BNM products' blank mode is calibrated and that habitat cannot fix the 1-cell excess. | yes |
-| P4 | Axel's view on one paper | Sara asks Axel | - |
+| # | Question | Suggestion |
+|---|---|---|
+| F4 | BNM species pages: as the v1 step18 pages (Sara, 15 Nov); species scope and phenology read from step18_bnm_profiles.py when the profile tool is planned | as v1, EOO removed |
+| P2 | One supplement sentence that EOO was planned, failed and was dropped | Sara will decide later |
 
-## Rare end (from 14 Nov, step 39)
+## Saved for later consideration (Sara, 15 Nov, in her words: "i will think about it")
 
-| # | Question | Why it matters | Suggestion |
-|---|---|---|---|
-| R1 | How the product reads at 1 record: recorded AOO as the lower bound, the 90% interval, P(window AOO under 2.5 tetrads), a "not decidable" flag when the interval spans the cut-off, and the BNM test-half bias beside it (the sensitivity line Sara said yes to on 15 Nov; its exact rule is written before it is made) | One record cannot give a range map; the product should say what it can decide. | yes |
-| R2 | Report the never-surveyed share of AOO in this paper (from the P4d columns, report only)? | About 0.58-0.60 of the land-only AOO at recorded classes 0-1 sits on land nobody surveyed, which no check covers. | yes |
-| R3 | v3 (Objective 1 rare end, retraining) after this paper, with a clean real test set chosen before any v3 work? | Root causes of the rare-end limits sit in the training mix; reaching them is a new model version. | yes |
+Claude's suggestion from the 14 Nov session, kept at her request: "For this paper, change what the model claims at one record; leave the model itself alone." S1, the one-record claim (this paper): for each species, recorded AOO as a hard lower bound, the 90% interval, and P(window AOO under 2.5 tetrads), which is the CR cut-off; a "not decidable" flag when the interval crosses that cut-off; the 0-3 record bias printed beside it. S2, surveyed against never-surveyed (this paper, report only): how much of each rare species' AOO lies on land nobody visited, so "we can't know" becomes "visit these tetrads to settle it"; later a simulation test of whether the model's ranking finds the hidden range with fewer visits than distance alone (not claimable on BNM today). Sara wants more tests of other options that might improve class 1 first; if none helps, she will be asked again about S1 and S2.
 
 ## On hold (Sara, 15 Nov)
 
 K (more samples for sparse stacks) and S (level correction by predicted size, with its tercile question) wait. T showed the gap left is in holes the model orders strictly, which K cannot change; S fixes no root cause.
 
 ## Answered
+
+- 15 Nov (evening): F1 real_eval, labelled "display reading 3, no scores", species drawn by a seed fixed before any file opens, plus one BNM row (records, samples, posterior, land mask). F2 one species per recorded class. F3 Figure 2 and the BNM species pages first (as v1), then the rest. F5 movie: the model turning noise into a map for one species (the sampler saves its steps). P1 Ecological Informatics. P4 one paper. R3 there is no v3; v2 is the final version (root causes beyond v2 are stated as limits and future work).
+- 15 Nov (evening): project space: files verified on GitHub removed from the project (list in README.md).
 
 - 15 Nov: storage. No project file is removed; old files and MD files updated from now on live in the private repo sarashahin/phd-obj2_v2-notes.
 - 15 Nov: T is a report-only finding; K and S on hold; figures next.

@@ -1,6 +1,6 @@
-# Paper plan for the v2 work (12 Nov 2026; updated 14 Nov: one paper chosen by Sara; 15 Nov: figures pulled ahead)
+# Paper plan for the v2 work (12 Nov 2026; updated 14 Nov: one paper chosen by Sara; 15 Nov: figures pulled ahead, figure answers, journal)
 
-Status: one paper (option B), chosen by Sara on 14 Nov; the v1 MetaDiffusion manuscript was not submitted and waits for this version (Sara, 14 Nov). Axel's view still to be asked. Journal: open; suggested Ecological Informatics (below). 15 Nov: Sara pulled the figures ahead of T/S because Axel asked to see Figure 2 as in v1.
+Status: one paper (option B), chosen by Sara on 14 Nov and confirmed 15 Nov; the v1 MetaDiffusion manuscript was not submitted and waits for this version. v2 is the final version: there is no v3 (Sara, 15 Nov); root causes beyond v2 are stated as limits and future work. Journal: Ecological Informatics (Sara, 15 Nov). 15 Nov: Sara pulled the figures ahead of T/S because Axel asked to see Figure 2 as in v1.
 
 ## Objective 4 claim (Sara, 13 Nov; project instructions updated 14 Nov: "we target AOO upgrading metrics")
 
@@ -24,7 +24,9 @@ Suggested: Ecological Informatics (v1's target; recorded in claude/V9_review.md:
 
 Major revision is the likely outcome; no paper of this kind should expect acceptance without revision. Points a reviewer will raise: (1) on BNM, maps of sparsely recorded species rank hidden records below a distance smoother, while the aim stresses rare species; the paper must say plainly that the gain on real data is the calibrated count and interval, not the map; (2) true AOO is never checked on real data, the products rest on calibration in simulated communities, and those communities miss BNM's rare end and similarity decay; (3) post-result choices (the land mask after the sea finding, the second labelled reading of real_eval, presentation lines) must be shown as labelled; (4) two seeds, one atlas, one taxon, one country, window AOO only; (5) never-surveyed land has no check; (6) planned analyses that failed (T3, EOO) must be reported. Strengths a reviewer will credit: rules written before results, leak tests with planted bugs, hold-outs opened once, every number recomputed.
 
-## Figures (plan; 15 Nov, waiting on Sara's 3 questions, then one tool per turn with a sandbox test)
+## Figures (plan; Sara's answers 15 Nov evening; one tool per turn with a sandbox test)
+
+Sara's answers (15 Nov): Figure 2 rows from real_eval, labelled "display reading 3, no scores", one species per recorded class, drawn by a seed fixed before any file opens, plus one BNM row (records, samples, posterior, land mask). Order: Figure 2 and the BNM species pages (as the v1 step18 pages) first; then the paper figure set; then the movie, which shows the model turning noise into a map for one species (the sampler saves its steps). Open before the Figure 2 draft: G1-G3 in claude/obj2_v2_open_questions.md.
 
 The old scripts are on Sara's disk (posterior_per_species.py for Figure 2; step18_bnm_profiles.py for the profiles). They read v1 files and will not run on v2 outputs, so we keep their layout and write v2 tools that read the v2 files. Reads only; no re-scoring; a real_eval truth panel is a labelled display reading (truth md5-logged first, no scores). All outputs are local files (PNG/PDF and HTML), not artifacts.
 
@@ -37,4 +39,4 @@ v2 data confirmed present: real_eval 50 maps per stack in samples_<run>.npz (sta
 
 ## Open
 
-- Journal choice; Axel's view on one paper; the EOO sentence; Figure 2 data (real_val, or a labelled real_eval reading); Figure 2 species choice; profile species scope and phenology; what the movies show.
+- The EOO sentence (Sara later); G1-G3 for Figure 2; profile species scope and phenology, read from step18_bnm_profiles.py when the profile tool is planned.
