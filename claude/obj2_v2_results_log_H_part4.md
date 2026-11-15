@@ -143,3 +143,15 @@ Recheck of the committed tool and test in a new sandbox, with her real export_ob
 Bug found before any run: version 1 looked for the map in ../data/lcm2019_1km, but on Sara's machine it sits in ../data/lcm2019_1km/data (P3c-0 result; P4-0's default). Version 1 would have crashed at J0 with a FileNotFoundError traceback, and the block's md5sum line would have printed "No such file". Version 2: default --lcm ../data/lcm2019_1km/data; a missing map or P4-0 file stops with "STOP: <path> not found" before anything runs; T3 of test_36 now checks that stop. No other line of the tool changed; the planted run writes the same b1a_habitat.npz (ae89fe52) as version 1. stage_b1a_habitat_axis.py 318 lines, md5 1ee98c85 (fingerprint af381e8a); test_36 218 lines, md5 853f8d2f (fingerprint 807cb26f). Block B1a-A (version 2) in README_stage_H_part2.
 
 Housekeeping: commit 1e717958 also carried four __pycache__/*.pyc files from the sandbox; a .gitignore now keeps new ones out; the four stay until Sara says they may go (repo rule: nothing deleted without her yes; open question S2).
+
+## Step 53 (15 Nov, late): Sara's answers to S1 / S2 / B-1b order; the project clean-up done
+
+Sara: S1 yes, with "look into the repo first and do it with caution, I don't want to lose any file or MD"; S2 yes (remove the four stray .pyc); B-1b order yes (after her B1a-A log, write B-1b's rule in full, then build).
+
+S1 safety check before any removal: the 182 paths in claude/project_cleanup_list.md were cross-checked against this repo's tracked files (git ls-files). All 182 are in the repo, each at the same path, committed and non-empty; 0 missing; no .md file is on the list (her MDs are not touched); 108 obj1_v2, 74 obj2_v2, matching the list header. The 8 kept files were confirmed still in the project.
+
+Removal: all 182 project copies deleted (project_delete, one per file). The project dropped from 1,807,021 to 734,923 of 2,000,000 bytes (90.3% to 36.7%), a drop of 1,072,098. After it, the project holds the 8 kept files, every MD doc and README, the temporal_checks/ folder, the root-level v1 scripts (step15-18, vis_stage3, axel_ecological_distribution_figure.py) and __init__.py; none of those are in the repo yet, so none was removed. New tools (B-1a on) come through the repo (G3), so the project no longer needs the stage tools. Each removed file is recoverable from the repo if ever needed (project_write from the repo copy).
+
+S2: the four __pycache__/*.pyc from commit 1e717958 git-removed; no tracked .pyc left; .gitignore (step 52) keeps new ones out.
+
+B-1b: its rule (step 41 plan, line above in this log) is written before B-1b runs, not before B-1a; B-1a only builds an input (the habitat axis), so reading its PC1 loadings first leaks nothing into B-1b's pass rule. Waiting for Sara's B1a-A run log, then B-1b's rule goes into H rules part 2 in full, then the tool is built and sandbox-tested.

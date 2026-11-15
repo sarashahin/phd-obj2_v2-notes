@@ -27,6 +27,12 @@ On Sara's machine, first time: `git clone https://github.com/sarashahin/phd-obj2
 
 claude/V9_review.md to claude/V16_review.md; obj1_v2/new_code/assembly_stepwise_ibm_v2_1.py to v2_4.py; claude/obj2_v2_results_log_H_part4.md, claude/obj2_v2_H_rules_part2.md, claude/obj2_v2_paper_plan.md, obj2_v2/README_stage_H_part2.md, obj2_v2/README_tests_part2.md. Each was checked to be on GitHub before it was removed.
 
+On 15 Nov 2026 (step 53), after Sara's yes to S1, 182 code files were removed from the project: obj2_v2/tools and tests (74) and obj1_v2/tools, tests and new_code (108), the full list in claude/project_cleanup_list.md. Each of the 182 was first checked to be in this repo at the same path (committed, non-empty); no MD or README was touched. Kept in the project: 8 files (6 that Sara's patch tools changed on her machine or that are newer here, 2 sandbox-only tests), plus every MD doc, the temporal_checks/ folder, the root-level v1 scripts and __init__.py (none of those are in the repo yet). The project dropped to 734,923 of 2,000,000 bytes (36.7%). Nothing was removed from GitHub.
+
 ## Tools from 15 Nov
 
 New tools and tests are delivered here (Sara, 15 Nov): `git pull`, then copy them into PSD_Dispersal_pool/obj2_v2/tools and tests. The md5 to check is the md5 of the file as committed. Sara's own code folders were added on 15 Nov (commit 462314a).
+
+## .pyc removed (step 53, Sara's yes to S2)
+
+The four __pycache__/*.pyc files that commit 1e717958 committed by mistake (sandbox bytecode, not code) were git-removed on 15 Nov. The .gitignore added in step 52 keeps new ones out.

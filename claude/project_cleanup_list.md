@@ -1,4 +1,4 @@
-# Project clean-up list S1 (15 Nov 2026; waiting for Sara's yes; nothing removed yet)
+# Project clean-up list S1 (15 Nov 2026; DONE at step 53: Sara said yes, all 182 checked to be in the repo first, then removed; project 90.3% to 36.7%)
 
 Rule: a project code file is removed only if the same path is in this repo from Sara's machine (commit 462314a), the version she ran. 10 of 10 spot-checked tools have the md5 logged at her runs. Files her patch tools changed on her machine differ from the project copy, so the project copy (the original before patching) stays. Sandbox-only tests not on her machine stay.
 
