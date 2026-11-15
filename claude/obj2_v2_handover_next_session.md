@@ -1,4 +1,4 @@
-# Objective 2 v2: handover for the next session (15 Nov 2026 late: habitat check B-1 suggested before Figure 2; G1, H1, S1 open; Sara's code is in the repo)
+# Objective 2 v2: handover for the next session (15 Nov 2026 late: B-1a built, block B1a-A sent through the repo; S1 list waiting for Sara's yes)
 
 This file was shortened on 15 Nov: the step-by-step history (steps 1-46) lives in the results logs and READMEs below, so it is not repeated here.
 
@@ -19,11 +19,11 @@ Read first, in this order: obj2_v2/README_stage_H_part2.md (status table and run
 
 ## Next steps
 
-1. Sara's answers to G1 (blank rows), H1 (B-1 first) and S1 (project space) in claude/obj2_v2_open_questions.md.
-2. If H1 yes: build stage_b1_habitat_signal.py with its test; plan in results log part 4 step 41 (LCM PC1, K2 on the fit-half holes, control map, real_val reference). Her real tools are in the repo clone (obj2_v2/tools, obj1_v2/tools): load them directly in the sandbox.
-3. Then the Figure 2 Draft (plan in step 49) and the BNM species pages (step18 layout).
-4. If S1 yes: list every project code file also in the repo, check md5 against logged run md5s where they exist, remove the project copies, record the list in the repo README.
-5. Tools now go to Sara through the repo (G3): she runs git pull, then copies the tool and test into obj2_v2/tools and obj2_v2/tests.
+1. Read Sara's B1a-A log: self-test 11 PASS, J0-J4, PC1 share and loadings (what the axis means); log it.
+2. Write B-1b's rule in full in H rules part 2 (step 41 plan: K2 per stack-repeat on fit-half holes 3+ cells from every kept record, LCM map against the control map, sparse set S, real_val reference on the 8,174 habitat-shown stacks), then build and sandbox-test it with her real tools from the repo clone.
+3. If Sara says yes to S1: remove the 182 files in claude/project_cleanup_list.md from the project, record it in the repo README.
+4. Then the Figure 2 Draft (G1: blank rows) and the BNM species pages.
+5. Tools go to Sara through the repo: she runs git pull and copies the tool and test into obj2_v2/tools and obj2_v2/tests; md5 = the file as committed.
 
 ## Rules that never change after a result
 

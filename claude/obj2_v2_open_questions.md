@@ -6,9 +6,7 @@ Questions put to Sara in earlier sessions that she has not answered yet. Each ha
 
 | # | Question | Why it matters | Suggestion |
 |---|---|---|---|
-| G1 | (asked again with a plain explanation) The five real_eval rows are simulation only. In half of the simulated evaluation stacks the model was given the habitat layer, in half it was blank. Draw the rows from the blank-habitat stacks? | The BNM row and every BNM product use the blank input, so blank rows compare like with like; shown-habitat rows would show the model with information it never gets on BNM. | blank |
-| H1 | Run habitat check B-1 (does the UKCEH Land Cover Map, as one habitat axis, carry the signal the model was trained on?) before Figure 2? | Sara wants the missing BNM habitat fixed first if a reliable, unbiased fix exists; B-1 is CPU only, uses the fit half and files already on her machine, and stops the habitat route early if the signal is weak. Figure 2's simulation rows do not depend on it. | yes, B-1 first, plan as written in results log part 4 step 41 |
-| S1 | Make project space: remove project copies of code files now in the repo from her machine (her run versions; 10 of 10 spot-checked md5s equal the md5s logged at her runs) | The project is at about 89%; code is most of it; the repo keeps every version. | yes, after a full listing of what would go |
+| S1 | Remove the 182 project code files listed in claude/project_cleanup_list.md (8 kept, reasons there)? | The project is at 90.3%; the repo holds her run versions. | yes |
 | P3 | B-0 in the supplement | Sara wants more testing first (B-1, B-2) | ask after B-1 / B-2 |
 
 ## Later
@@ -27,6 +25,8 @@ Claude's suggestion from the 14 Nov session, kept at her request: "For this pape
 K (more samples for sparse stacks) and S (level correction by predicted size, with its tercile question) wait. T showed the gap left is in holes the model orders strictly, which K cannot change; S fixes no root cause.
 
 ## Answered
+
+- 15 Nov (late): G1 yes, Figure 2 simulation rows from habitat-blanked stacks. H1 yes, B-1 before Figure 2 (then B-2 only if B-1 passes; GPU step only if both pass; refit by input mode and a clean test before any BNM claim). S1: list first (shown).
 
 - 15 Nov (late): G2 yes (BNM row drawn by the fixed seed from species with 2-5 records in a coastal window). G3 yes (new tools through the GitHub repo). R1 options (a) and (b): print the test-half bias beside the product at 0-3 records, and an adjusted AOO = AOO / ratio labelled as an assumption. Sara pushed her code folders to the repo (commit 462314a; obj1_v2 tools, tests, new_code; obj2_v2 tools, tests).
 

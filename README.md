@@ -26,3 +26,7 @@ On Sara's machine, first time: `git clone https://github.com/sarashahin/phd-obj2
 ## Removed from the claude.ai project on 15 Nov 2026 (copies here only)
 
 claude/V9_review.md to claude/V16_review.md; obj1_v2/new_code/assembly_stepwise_ibm_v2_1.py to v2_4.py; claude/obj2_v2_results_log_H_part4.md, claude/obj2_v2_H_rules_part2.md, claude/obj2_v2_paper_plan.md, obj2_v2/README_stage_H_part2.md, obj2_v2/README_tests_part2.md. Each was checked to be on GitHub before it was removed.
+
+## Tools from 15 Nov
+
+New tools and tests are delivered here (Sara, 15 Nov): `git pull`, then copy them into PSD_Dispersal_pool/obj2_v2/tools and tests. The md5 to check is the md5 of the file as committed. Sara's own code folders were added on 15 Nov (commit 462314a).

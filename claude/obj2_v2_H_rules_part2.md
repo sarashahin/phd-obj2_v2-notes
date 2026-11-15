@@ -45,3 +45,21 @@ Both are report only. The model, its samples, h3_freeze.json, the P4 fits and ev
 - Q1: S with 3 size bins per recorded class (terciles, cut points from the other fold). Suggested yes: at least 250 fit stacks per bin in every class, and one fixed choice means no picking among bin counts after results.
 - Q2: T's tie-breaker is B1 exact only. Suggested yes: one fixed choice; B1 stored is only a reference in the rule.
 - Q3: order T first, then S, one tool per step, each tested on planted data before delivery. Suggested yes.
+
+## Habitat check B-1 (Sara, 15 Nov late: yes to B-1 before Figure 2; go rule of 14 Nov unchanged)
+
+Written 15 Nov before any B-1 value is read, from the step 41 plan (results log part 4), with the details below fixed now. B-1 runs in two tools, each tested on planted data and run before the next: B-1a builds the habitat axis (no BNM record or label opened), B-1b scores K2 on the fit-half holes against a control and the real_val reference.
+
+### B-1a, the habitat axis from the Land Cover Map
+
+- Map: UKCEH LCM 2019 1 km percentage target, GB (md5 d66aac88; 21 bands, band k = class k, confirmed at P3c-2b). Window grid as step 10 and P3c (row from the south, column from the west, 2 km tetrads, the four 1 km cells of tetrad (r, c) of window (e, n) at eastings e + 2c, e + 2c + 1 and northings n + 2r, n + 2r + 1 km); a cell outside the raster counts 0.
+- Composition of a tetrad: per class, the sum of its four cells' percentages, divided by the sum over all 21 classes. A tetrad whose 21 classes sum to 0 (open sea, outside the raster) has no composition.
+- Fit set: the tetrads of the 44 fit-half windows that lie in L_w (P4-0's land mask, p4_windows.npz 928cf96c) and have a composition; each window-tetrad once.
+- Axis: the first principal component of the 21-share vectors over the fit set (covariance, ddof 1; numpy eigh). Sign: the class with the largest absolute loading is given a positive loading. Only PC1 is used; PC2 and PC3 are reported, never tested.
+- Map value: score = (composition - fit-set mean) . PC1; per window z-scored over its L_w tetrads that have a score (as channel 18 is z-scored with the map's own mean and sd); tetrads outside L_w or with no composition get 0 (the value channel 18 takes where there is no habitat).
+- Control map for B-1b: the 44 windows in name order; window k takes the map of window (k + 22) mod 44 (another real map of the same smoothness, as stage D's other-community control).
+- Gates: J0 inputs (map md5; p4_windows.npz and p4_0_report.json md5 = P4-0 and its gates PASS); J1 grid (land from the composition by the P3c rule = P4-0's LCM land in every window, 0 differences; 21 bands, uint8, EPSG 27700, 1 km pixels on whole km); J2 code (eigh = SVD to 1e-9; z mean 0 and sd 1 over the scored L_w tetrads of every window, 1e-9; compositions sum to 1, 1e-9; a plain loop on 3 windows = the vectorised composition); J3 np.load only on p4_windows.npz (no BNM record, label, test-half or real_eval file); J4 outputs written once into a new folder and read back equal.
+- Reported, no rule: variance share of PC1-PC3; PC1 loadings by class; per window the scored and zero tetrads; the share of L_w tetrads with no composition.
+- Limit stated now: one axis of land-cover composition at 2 km cannot hold every butterfly's habitat; B-1b measures whether it carries signal for the recorded species.
+
+### B-1b, K2 on the fit-half holes (built after B-1a runs; details as step 41, to be written here in full before it runs)
