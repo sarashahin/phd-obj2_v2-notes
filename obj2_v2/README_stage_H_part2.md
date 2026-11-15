@@ -11,7 +11,7 @@ obj2_v2/README_stage_H.md holds the run blocks and status of H0-P4d; it reached 
 | T | Sara's yes 15 Nov; block T-A run by Sara 15 Nov: self-test 13 PASS, gates V0-V4 PASS, t_scores.npz 6f7f67ac, t_report.json 1305724a; rule NO (class 1 and records 4-6 still FAIL against B1 exact for both seeds); ties close 38-65% of the sparse gap; report only |
 | K | on hold (Sara 15 Nov) |
 | S | on hold (Sara 15 Nov) |
-| B-1a | Sara's yes 15 Nov (B-1 before Figure 2); rule in H rules part 2; stage_b1a_habitat_axis.py with test_36, sandbox 11 PASS; block B1a-A sent (tools now come through the repo) |
+| B-1a | Sara's yes 15 Nov (B-1 before Figure 2); rule in H rules part 2; stage_b1a_habitat_axis.py version 2 (1ee98c85) with test_36 (853f8d2f), sandbox 11 PASS; block B1a-A (version 2) sent through the repo; waiting for Sara's run |
 | B-1b | after B-1a runs; rule to be written in full first |
 
 ```
@@ -88,13 +88,13 @@ next, B-1b: does nearness on this axis to a species' records pick out its hidden
 
 Problem: on BNM the model gets no habitat layer. Idea: give it one axis of land-cover composition, built like the training habitat. Plan: B-1a builds the axis (this block); B-1b scores it on the fit-half holes against a control and the real_val reference; B-2 and the GPU step only if B-1 passes (go rule, 14 Nov). Expected outputs: b1a_habitat.npz, b1a_report.json, the log; the PC1 loadings show what the axis means. Open: whether one axis carries signal for butterflies (B-1b).
 
-Tools now come through the repo (Sara, 15 Nov, G3). CPU, under a minute.
+Tools now come through the repo (Sara, 15 Nov, G3). CPU, under a minute. Version 2 (15 Nov, before any run): version 1 looked for the map in ../data/lcm2019_1km; the map is in ../data/lcm2019_1km/data (P3c-0, P4-0), so version 1 would have stopped with a traceback at J0. The default and this block's md5sum line now use the data folder, and a missing input stops with its path. The axis code did not change (planted run output md5 ae89fe52 in both versions).
 
 ```bash
 cd ~/phd-obj2_v2-notes && git pull
 cd ~/Downloads/"The-Lotka-Volterra-Metacommunity-Model-main (1)"/The-Lotka-Volterra-Metacommunity-Model-main/PSD_Dispersal_pool/obj2_v2/work
 cp ~/phd-obj2_v2-notes/obj2_v2/tools/stage_b1a_habitat_axis.py ../tools/ && cp ~/phd-obj2_v2-notes/obj2_v2/tests/test_36_b1a_habitat_axis.py ../tests/
-md5sum ../tools/stage_b1a_habitat_axis.py ../tests/test_36_b1a_habitat_axis.py ../tools/export_obj2.py ../tools/stage_p3c_band_check.py ../data/lcm2019_1km/gb2019lcm1km_percentage_target.tif ../data/stage_p4_0/p4_windows.npz
+md5sum ../tools/stage_b1a_habitat_axis.py ../tests/test_36_b1a_habitat_axis.py ../tools/export_obj2.py ../tools/stage_p3c_band_check.py ../data/lcm2019_1km/data/gb2019lcm1km_percentage_target.tif ../data/stage_p4_0/p4_windows.npz ../data/stage_p4_0/p4_0_report.json
 ls -d ../data/stage_b1a_habitat 2>/dev/null || echo "no stage_b1a_habitat"
 python3 ../tools/stage_b1a_habitat_axis.py --self-test > ../logs/test_36_b1a_selftest.txt 2>&1; st=$?
 grep -E "^(U|T|bug)[^ ]* .*: (PASS|FAIL)$|PASS, " ../logs/test_36_b1a_selftest.txt
@@ -102,4 +102,4 @@ grep -E "^(U|T|bug)[^ ]* .*: (PASS|FAIL)$|PASS, " ../logs/test_36_b1a_selftest.t
 md5sum ../data/stage_b1a_habitat/*
 ```
 
-Verification line: md5 stage_b1a_habitat_axis.py 4282109d0b21f54bc3a6e263365e5e61, test_36 ee75fcb2666a6ad54499b6864220e6e9 (copied from the repo, so the md5 is the file as committed), export_obj2.py 2685f91aac0c2fe89c9344abe112bd7b, stage_p3c_band_check.py 98faa2d95d1a96fa6680972c1100f3ca, map d66aac8836c89b317e9b6b0a09262c66, p4_windows.npz 928cf96c9bcbe9a14bb0f639adb581eb; "no stage_b1a_habitat"; self-test 11 lines PASS and "11 PASS, 0 FAIL"; J0 every part True; J1 "44 fit-half windows ... 0 tetrads differ"; J2 |cos| 1.000000000000 and every difference at 1e-9 or less; J3 1 file; J4 PASS; last line "stage B-1a: gates 5 PASS, 0 FAIL; habitat axis PC1 (...) for 44 fit-half windows". Send the whole log.
+Verification line: md5 stage_b1a_habitat_axis.py 1ee98c8516bf14c8d2eccf48fdfd6947, test_36 853f8d2f44f3162ffd8637afe5f6c449 (version 2, copied from the repo, so the md5 is the file as committed; fingerprints af381e8a, 807cb26f), p4_0_report.json 842697b1acf4f8d6484e6d0f659d8b73, export_obj2.py 2685f91aac0c2fe89c9344abe112bd7b, stage_p3c_band_check.py 98faa2d95d1a96fa6680972c1100f3ca, map d66aac8836c89b317e9b6b0a09262c66, p4_windows.npz 928cf96c9bcbe9a14bb0f639adb581eb; "no stage_b1a_habitat"; self-test 11 lines PASS and "11 PASS, 0 FAIL"; J0 every part True; J1 "44 fit-half windows ... 0 tetrads differ"; J2 |cos| 1.000000000000 and every difference at 1e-9 or less; J3 1 file; J4 PASS; last line "stage B-1a: gates 5 PASS, 0 FAIL; habitat axis PC1 (...) for 44 fit-half windows". Send the whole log.

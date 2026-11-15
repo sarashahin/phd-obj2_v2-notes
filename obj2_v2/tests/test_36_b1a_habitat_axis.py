@@ -14,7 +14,7 @@ coastal cells; six planted windows of 20 x 20 tetrads; a planted p4_windows.npz 
     T1  the tool: gates J0-J4 PASS, files written, last line
     T2  recomputed outside the tool from the planted raster: composition, PC1 by SVD, z of every window (1e-9); the surveyed
         sea tetrad is 0; control index = (k + 3) mod 6
-    T3  refused: an existing output folder; an output inside the P4-0 folder
+    T3  refused: an existing output folder; an output inside the P4-0 folder; a map folder without the map (version 2)
     T4  planted bugs, each fails its gate and writes nothing: grid row-flipped (J1), composition not normalised (J2), z over all
         400 tetrads (J2), PC1 sign reversed (J2), a test-half path loaded (J3), p4_windows.npz changed (J0)
 """
@@ -153,12 +153,14 @@ def checks(T, w, tmp, t):
       f"control index (k + 3) mod 6 {ctrl}")
     stops = []
     for f_ in (lambda: T.run(w["lcm"], w["p4"], tmp / "out", expect=w["expect"], out=quiet),
-               lambda: T.run(w["lcm"], w["p4"], w["p4"] / "x", expect=w["expect"], out=quiet)):
+               lambda: T.run(w["lcm"], w["p4"], w["p4"] / "x", expect=w["expect"], out=quiet),
+               lambda: T.run(w["lcm"].parent / "no_such_map_folder", w["p4"], tmp / "out_nomap", expect=w["expect"], out=quiet)):
         try:
             f_(); stops.append(False)
-        except SystemExit:
-            stops.append(True)
-    t("T3", all(stops), f"refused: an existing output folder {stops[0]}, an output inside the P4-0 folder {stops[1]}")
+        except SystemExit as e:
+            stops.append("not found" in str(e) if len(stops) == 2 else True)
+    t("T3", all(stops) and not (tmp / "out_nomap").exists(), f"refused: an existing output folder {stops[0]}, an output inside the "
+      f"P4-0 folder {stops[1]}, a map folder without the map (STOP names the path, nothing written) {stops[2]}")
     for bug, g_ in (("flip", "J1"), ("no_norm", "J2"), ("z_all", "J2"), ("sign", "J2"), ("test_path", "J3")):
         os.environ["STAGE_B1A_BROKEN"] = bug
         try:

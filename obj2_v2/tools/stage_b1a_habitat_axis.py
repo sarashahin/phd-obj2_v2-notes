@@ -32,7 +32,9 @@ Run (from PSD_Dispersal_pool/obj2_v2/work; CPU, under a minute)
     python3 ../tools/stage_b1a_habitat_axis.py --self-test 2>&1 | tail -n 1
     python3 -u ../tools/stage_b1a_habitat_axis.py > ../logs/stage_b1a_habitat_axis.txt 2>&1
 Needs export_obj2.py and stage_p3c_band_check.py in the same folder, rasterio, and ../tests/test_36_b1a_habitat_axis.py for
-the self-test.
+the self-test. The map folder is ../data/lcm2019_1km/data (where P3c and P4-0 read it); --lcm changes it.
+Version 2 (15 Nov, before any run): map folder default corrected from ../data/lcm2019_1km to ../data/lcm2019_1km/data;
+a missing input file stops with its path instead of a traceback. Nothing else changed.
 """
 import argparse, hashlib, importlib.util, json, os, sys, time
 from datetime import datetime, timezone
@@ -177,8 +179,11 @@ def now():
 
 
 # ---------------------------------------------------------------- run
-def run(lcm="../data/lcm2019_1km", p4="../data/stage_p4_0", out_dir="../data/stage_b1a_habitat", expect=EXPECT, out=print):
+def run(lcm="../data/lcm2019_1km/data", p4="../data/stage_p4_0", out_dir="../data/stage_b1a_habitat", expect=EXPECT, out=print):
     lcm, p4, out_dir = Path(lcm), Path(p4), Path(out_dir)
+    for f in (lcm / BC.PCT, p4 / "p4_windows.npz", p4 / "p4_0_report.json"):
+        if not f.is_file():
+            sys.exit(f"STOP: {f} not found (the map is in ../data/lcm2019_1km/data as at P3c-0; P4-0 wrote ../data/stage_p4_0)")
     o = out_dir.resolve()
     if any(o == q.resolve() or q.resolve() in o.parents for q in (lcm, p4)):
         sys.exit("STOP: nothing is written inside an input folder; give another --out")
@@ -299,7 +304,7 @@ def run(lcm="../data/lcm2019_1km", p4="../data/stage_p4_0", out_dir="../data/sta
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--self-test", action="store_true")
-    ap.add_argument("--lcm", default="../data/lcm2019_1km")
+    ap.add_argument("--lcm", default="../data/lcm2019_1km/data")
     ap.add_argument("--p4", default="../data/stage_p4_0")
     ap.add_argument("--out", default="../data/stage_b1a_habitat")
     a = ap.parse_args()

@@ -7,6 +7,7 @@ Questions put to Sara in earlier sessions that she has not answered yet. Each ha
 | # | Question | Why it matters | Suggestion |
 |---|---|---|---|
 | S1 | Remove the 182 project code files listed in claude/project_cleanup_list.md (8 kept, reasons there)? | The project is at 90.3%; the repo holds her run versions. | yes |
+| S2 | Remove the four __pycache__/*.pyc files that commit 1e717958 put in the repo (sandbox by-products, not code)? | The repo rule is that nothing is deleted without her yes; a .gitignore (step 52) keeps new ones out. | yes |
 | P3 | B-0 in the supplement | Sara wants more testing first (B-1, B-2) | ask after B-1 / B-2 |
 
 ## Later

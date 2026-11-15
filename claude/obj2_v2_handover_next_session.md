@@ -1,4 +1,4 @@
-# Objective 2 v2: handover for the next session (15 Nov 2026 late: B-1a built, block B1a-A sent through the repo; S1 list waiting for Sara's yes)
+# Objective 2 v2: handover for the next session (15 Nov 2026 late, step 52: B-1a version 2 sent as block B1a-A; waiting for Sara's run log and her S1 / S2 answers)
 
 This file was shortened on 15 Nov: the step-by-step history (steps 1-46) lives in the results logs and READMEs below, so it is not repeated here.
 
@@ -14,14 +14,15 @@ Read first, in this order: obj2_v2/README_stage_H_part2.md (status table and run
 - Paper (Sara 14 Nov): one paper for all of v2; v1 never submitted; figures before text (Figure 2 posterior samples, figure set, BNM HTML profiles as step18 without EOO, 3D trace movies); questions of steps 38-39 on figures still open.
 - 15 Nov: Sara asked for rare-end options without retraining (step 45) and said yes to T and S now, K only if T leaves a gap, yes to a sensitivity line (assumption, not a product). Rules written before any value (H rules part 2). Her "continue" read as yes to Q1-Q3 there (to be confirmed).
 - T: stage_t_tiebreak.py (27631419) with test_35 (fb884828); Sara's run 15 Nov: self-test 13 PASS, gates V0-V4 PASS, t_report.json 1305724a; rule NO. Ties close 38-65% of the sparse gap; class 1 and records 4-6 stay below B1 exact. T fixes no root cause and changes no AOO.
+- Step 52 (15 Nov, late): the step 51 session was cut off before its reply; B-1a rechecked in a new sandbox (11 PASS); a path bug fixed before any run (map folder ../data/lcm2019_1km/data, as P3c and P4-0); version 2 committed and block B1a-A sent again.
 - Sara 15 Nov: K and S on hold; T recorded as a report-only finding. Figure answers: real_eval rows as "display reading 3, no scores", one species per recorded class, seed fixed first, plus one BNM row; Figure 2 and the BNM species pages (as v1) first; movie = denoising; journal Ecological Informatics; one paper; no v3 (v2 is final). Open questions: claude/obj2_v2_open_questions.md (G1-G3 before the Figure 2 draft; P3, R1, R2 asked again).
 - Project space (15 Nov): 17 files verified on GitHub removed from the project (list in the repo README); about 89% used after.
 
 ## Next steps
 
-1. Read Sara's B1a-A log: self-test 11 PASS, J0-J4, PC1 share and loadings (what the axis means); log it.
+1. Read Sara's B1a-A log (version 2: tool 1ee98c85, test 853f8d2f): self-test 11 PASS, J0-J4, PC1 share and loadings (what the axis means); log it in results log part 4 as step 53. If J1 fails (grid or land rule differ from P4-0), stop and find the cause before any B-1b work.
 2. Write B-1b's rule in full in H rules part 2 (step 41 plan: K2 per stack-repeat on fit-half holes 3+ cells from every kept record, LCM map against the control map, sparse set S, real_val reference on the 8,174 habitat-shown stacks), then build and sandbox-test it with her real tools from the repo clone.
-3. If Sara says yes to S1: remove the 182 files in claude/project_cleanup_list.md from the project, record it in the repo README.
+3. If Sara says yes to S1: remove the 182 files in claude/project_cleanup_list.md from the project, record it in the repo README. If yes to S2: git rm the four __pycache__/*.pyc files of commit 1e717958.
 4. Then the Figure 2 Draft (G1: blank rows) and the BNM species pages.
 5. Tools go to Sara through the repo: she runs git pull and copies the tool and test into obj2_v2/tools and obj2_v2/tests; md5 = the file as committed.
 
