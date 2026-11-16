@@ -8,6 +8,7 @@ Questions put to Sara in earlier sessions that she has not answered yet. Each ha
 |---|---|---|---|
 | M1 | B-1b: score the LCM map and the control map on the same holes only (holes scored in both maps) | the control window's sea gives 0 values, so coastal pairs tie many holes under the control and make it look weaker than it is; B-1b could pass for a reason unrelated to habitat | yes; report holes dropped per group |
 | M2 | B-1b: keep PC1 as signed, although it is a pasture against arable axis (improved grassland +0.886, arable -0.424) with little weight on semi-natural classes | changing the axis after seeing its loadings is a choice made after a result | yes; if B-1b fails, the paper names the axis in the habitat limit |
+| D1 | Extend the hand-drawing guide (step 55) to Objectives 2-4 in the same sheet format, pipeline only: survey export and records, input builder, model and training, Objective 3 intervals, BNM hole test and products | the guide now stops at the comparison with BNM; Sara earlier asked for the whole chain, Objective 1 to Objectives 3/4 | yes, as Parts 6-9 of the same Doc, after she has checked that Parts 1-5 read well when drawn by hand |
 | P3 | B-0 in the supplement | Sara wants more testing first (B-1, B-2) | ask after B-1 / B-2 |
 
 ## Later
