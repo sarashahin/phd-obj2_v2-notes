@@ -33,7 +33,7 @@ No leakage; real_eval read twice (G5d, then P4-2 labelled); any further reading 
 ## How Sara wants the work run
 
 - Every reply that needs her to run something ends with an exact command block (full cd path) and a verification line; a plan waiting for sign-off says so in one line.
-- Reply: thinking block with up to 3 questions (why, and Claude's suggested answer), XML task tags, key claim in bold, verification block; short plain English; say "communities".
+- Reply: before answering, check constraints and edge cases; up to 3 questions if the goal is unclear (why, and Claude's suggested answer), XML task tags, key claim in bold, verification block; short plain English; say "communities".
 - Code: sandbox test on planted data first; on her machine plain python3 (not -I). Tools reuse validated tools by import (T imports stage_f0_spread_check.py). Project files come back inline from project_read, so a sandbox needs stubs for deep tool chains: copy the exact functions used, and let the self-test on her machine run with her real tools. Stubs and planted-world scripts stay out of the project.
 - After each step update, in the repo, README_stage_H_part2, README_tests_part2, results log H part 4, H rules part 2 (when a rule changes), the open questions file, and the Claude Doc (project HQmk81fegK2SmYRopQBfsS; body node e9c6596e-b7f6 in doc 84e3e63f-aac7-4509-8b92-c0b1ffa867a5).
 - Download-form md5 = md5 of the file without its final newline; blocks also give a content fingerprint (no #! line, no trailing spaces).
