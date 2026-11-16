@@ -12,7 +12,7 @@ obj2_v2/README_stage_H.md holds the run blocks and status of H0-P4d; it reached 
 | K | on hold (Sara 15 Nov) |
 | S | on hold (Sara 15 Nov) |
 | B-1a | Sara's yes 15 Nov (B-1 before Figure 2); rule in H rules part 2; stage_b1a_habitat_axis.py version 2 (1ee98c85) with test_36 (853f8d2f), sandbox 11 PASS; block B1a-A run by Sara 16 Nov: self-test 11 PASS, gates J0-J4 PASS, b1a_habitat.npz fac95acf, b1a_report.json 71e2bedb; PC1 0.375 of the variance, pasture against arable (improved grassland +0.886, arable -0.424) |
-| B-1b | rule signed by Sara 16 Nov (M3); stage_b1b_k2.py (2ba374a6) with test_37 (b68db477), sandbox 17 PASS with her real tools (planted pipeline of test_25); block B1b-A sent through the repo; waiting for Sara's run |
+| B-1b | rule signed by Sara 16 Nov (M3); stage_b1b_k2.py (2ba374a6) with test_37 (b68db477), sandbox 17 PASS with her real tools (planted pipeline of test_25); block B1b-A sent through the project (16 Nov: Sara moved tools and living MD files back to the project); waiting for Sara's run |
 
 ```
 B-0 sketch
@@ -121,13 +121,12 @@ beside it: the same numbers on real_val (simulated, habitat shown), other commun
 
 Problem: on BNM the model gets no habitat; B-0 showed a habitat map of training strength cannot shrink the 1-cell AOO excess, but whether a real land-cover axis carries any signal for sparse map ranking was not measured. Idea: score how well closeness on the B-1a axis to a species' kept records picks out its hidden records, against a borrowed map of the same kind. Plan: one tool, fit half, no parameter, rule signed before the run. Expected outputs: b1b_scores.npz, b1b_realval.npz, b1b_report.json, the log. Open: whether the S interval sits above 0 (the rule) and how the BNM numbers compare with the real_val reference.
 
-Tools come through the repo (G3). CPU; the self-test builds test_25's planted pipeline (about 8-10 minutes), the run a few minutes. From obj2_v2/work:
+Tools come through the project again (Sara, 16 Nov). Save `obj2_v2/tools/stage_b1b_k2.py` from the project into tools and `obj2_v2/tests/test_37_b1b_k2.py` into tests. CPU; the self-test builds test_25's planted pipeline (about 8-10 minutes), the run a few minutes. From obj2_v2/work:
 
 ```bash
-cd ~/phd-obj2_v2-notes && git pull
 cd ~/Downloads/"The-Lotka-Volterra-Metacommunity-Model-main (1)"/The-Lotka-Volterra-Metacommunity-Model-main/PSD_Dispersal_pool/obj2_v2/work
-cp ~/phd-obj2_v2-notes/obj2_v2/tools/stage_b1b_k2.py ../tools/ && cp ~/phd-obj2_v2-notes/obj2_v2/tests/test_37_b1b_k2.py ../tests/
 md5sum ../tools/stage_b1b_k2.py ../tests/test_37_b1b_k2.py ../tools/stage_f0_spread_check.py ../tools/stage_h2_bnm_score.py ../data/stage_b1a_habitat/b1a_habitat.npz ../data/stage_b1a_habitat/b1a_report.json ../data/stage_h3_freeze/h3_freeze.json ../data/stage_d_frozen_val.npz
+python3 -c "import hashlib,sys;[print(hashlib.md5(b'\n'.join(l.rstrip() for l in open(f,'rb').read().split(b'\n') if l[:2]!=bytes([35,33])).rstrip(b'\n')).hexdigest(), f) for f in sys.argv[1:]]" ../tools/stage_b1b_k2.py ../tests/test_37_b1b_k2.py
 ls -d ../data/stage_b1b_k2 2>/dev/null || echo "no stage_b1b_k2"
 python3 ../tools/stage_b1b_k2.py --self-test > ../logs/test_37_b1b_selftest.txt 2>&1; st=$?
 grep -E "^(U|T|S|bug)[^ ]* .*: (PASS|FAIL)$|PASS, " ../logs/test_37_b1b_selftest.txt
@@ -135,4 +134,4 @@ grep -E "^(U|T|S|bug)[^ ]* .*: (PASS|FAIL)$|PASS, " ../logs/test_37_b1b_selftest
 md5sum ../data/stage_b1b_k2/*
 ```
 
-Verification line: md5 stage_b1b_k2.py 2ba374a697d4dcc4bec20011a3547f14, test_37 b68db477c591e2c3c1ac84d7df47aacc (copied from the repo, so the md5 is the file as committed; fingerprints 88a553d2, 2453c4f6), stage_f0_spread_check.py 75ce6f2414a7719501bc30afbb989c26, stage_h2_bnm_score.py 3b679fcfa8f85874d5be0f3f6646ee93, b1a_habitat.npz fac95acff9353bbc583c081df90a9b43, b1a_report.json 71e2bedb034d72e3ef240330a9dcae23, h3_freeze.json 5516a6fc9e1cfcda3ce1a883aa5467f9, stage_d_frozen_val.npz starting 7f4844ed (P4-1's record); "no stage_b1b_k2"; self-test 17 lines PASS (U1-U4, S0, T1-T3, 9 bugs), the planted run's last line, then "17 PASS, 0 FAIL"; W0 every part True; W1 44 windows, control (k + 22) mod 44, kept-record tetrads off L_w 0.0000% (L_w holds every surveyed tetrad, so 0 is expected; the flipped share is larger); W2 every difference 1e-9 or less; W3, W4, W5 True; W6 PASS; last line "stage B-1b: gates 7 PASS, 0 FAIL; S: AUC(own) - AUC(control) ... B-1 by the rule written before the run: PASS" (or FAIL). Send the whole log. If the self-test has a FAIL, the run line does nothing (it needs exit code 0); send ../logs/test_37_b1b_selftest.txt then.
+Verification line: md5 stage_b1b_k2.py 6eb00e6e0223380933a2e3b2abf1ab1d, test_37 f4fc57665c3e61884e3b1437e86e723f (download form from the project, final newline dropped; if a file kept its final newline the md5 is 2ba374a697d4dcc4bec20011a3547f14 / b68db477c591e2c3c1ac84d7df47aacc, the same content; fingerprints 88a553d27f79d38c0d0a7ce17042deb3, 2453c4f6f9c263fd2e9ad9390b623409 either way), stage_f0_spread_check.py 75ce6f2414a7719501bc30afbb989c26, stage_h2_bnm_score.py 3b679fcfa8f85874d5be0f3f6646ee93, b1a_habitat.npz fac95acff9353bbc583c081df90a9b43, b1a_report.json 71e2bedb034d72e3ef240330a9dcae23, h3_freeze.json 5516a6fc9e1cfcda3ce1a883aa5467f9, stage_d_frozen_val.npz starting 7f4844ed (P4-1's record); "no stage_b1b_k2"; self-test 17 lines PASS (U1-U4, S0, T1-T3, 9 bugs), the planted run's last line, then "17 PASS, 0 FAIL"; W0 every part True; W1 44 windows, control (k + 22) mod 44, kept-record tetrads off L_w 0.0000% (L_w holds every surveyed tetrad, so 0 is expected; the flipped share is larger); W2 every difference 1e-9 or less; W3, W4, W5 True; W6 PASS; last line "stage B-1b: gates 7 PASS, 0 FAIL; S: AUC(own) - AUC(control) ... B-1 by the rule written before the run: PASS" (or FAIL). Send the whole log. If the self-test has a FAIL, the run line does nothing (it needs exit code 0); send ../logs/test_37_b1b_selftest.txt then.

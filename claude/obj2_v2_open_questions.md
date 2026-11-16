@@ -27,6 +27,8 @@ K (more samples for sparse stacks) and S (level correction by predicted size, wi
 
 ## Answered
 
+- 16 Nov (after step 59): storage changed back, replacing the 15 Nov storage answer and G3. Tools and living MD files are in the claude.ai project again; Sara downloads tools from the project. The repo holds only files moved out when the project nears its size limit, and they come back when needed.
+
 - 16 Nov (step 59): M3 yes, B-1b's rule signed as written; the tool was built and tested on planted data (block B1b-A).
 
 - 16 Nov (step 58): M1 yes, both maps scored only on holes with a value in both, dropped holes reported per group. M2 yes, PC1 kept as signed.
