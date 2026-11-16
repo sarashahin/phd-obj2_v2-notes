@@ -12,7 +12,7 @@ obj2_v2/README_stage_H.md holds the run blocks and status of H0-P4d; it reached 
 | K | on hold (Sara 15 Nov) |
 | S | on hold (Sara 15 Nov) |
 | B-1a | Sara's yes 15 Nov (B-1 before Figure 2); rule in H rules part 2; stage_b1a_habitat_axis.py version 2 (1ee98c85) with test_36 (853f8d2f), sandbox 11 PASS; block B1a-A run by Sara 16 Nov: self-test 11 PASS, gates J0-J4 PASS, b1a_habitat.npz fac95acf, b1a_report.json 71e2bedb; PC1 0.375 of the variance, pasture against arable (improved grassland +0.886, arable -0.424) |
-| B-1b | rule to be written in full after Sara answers M1 (control scored on the same holes as the LCM map) and M2 (keep PC1); then build and sandbox |
+| B-1b | M1 and M2 yes (Sara 16 Nov); rule written in full in H rules part 2 (step 58), waits for Sara's sign-off (M3); then stage_b1b_k2.py with test_37, planted-data sandbox, block B1b-A through the repo |
 
 ```
 B-0 sketch
