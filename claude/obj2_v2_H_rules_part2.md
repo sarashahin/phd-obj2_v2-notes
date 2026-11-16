@@ -62,7 +62,7 @@ Written 15 Nov before any B-1 value is read, from the step 41 plan (results log 
 - Reported, no rule: variance share of PC1-PC3; PC1 loadings by class; per window the scored and zero tetrads; the share of L_w tetrads with no composition.
 - Limit stated now: one axis of land-cover composition at 2 km cannot hold every butterfly's habitat; B-1b measures whether it carries signal for the recorded species.
 
-### B-1b, K2 on the fit-half holes (rule written 16 Nov, step 58, before any B-1b value; waits for Sara's sign-off, M3)
+### B-1b, K2 on the fit-half holes (rule written 16 Nov, step 58, before any B-1b value; signed by Sara 16 Nov, M3)
 
 - Inputs fixed: B-1a ran 16 Nov (step 54; b1a_habitat.npz fac95acf, b1a_report.json 71e2bedb); PC1 = pasture against arable (improved grassland +0.886, arable -0.424), 0.375 of the variance. Sara 16 Nov: M1 yes (both maps scored on the same holes), M2 yes (PC1 kept as signed; no second axis tested).
 - Question: on the BNM fit half, do hidden recorded tetrads sit closer on the habitat axis to the species' kept records than hidden unrecorded tetrads do, and more so with the window's own map than with another window's map? Report only; nothing is fitted (no parameter, no folds); the model, its samples, h3_freeze.json, the P4 fits and every product stay as they are.
@@ -79,3 +79,4 @@ Written 15 Nov before any B-1 value is read, from the step 41 plan (results log 
 - Planted checks before delivery (sandbox): a world where recorded holes follow the own map passes; a world where they do not fails; a coastal world where the control has sea over half of window k shows d inflated without the support rule and near 0 with it (M1 in action); planted bugs (grid flipped, control = own window, near holes kept, labels shifted, support only in one arm, a test-half path) each fail their gate.
 - What a PASS means: one land-cover axis carries some signal for hidden records of sparsely recorded species on the fit half, beyond a smooth map of the same kind. It is development evidence only; B-2, then the GPU step, then a clean test would still be needed before any BNM claim. What a FAIL means: this axis gives the sparse BNM maps nothing measurable; B stops.
 - Limit stated now: K2 scores habitat closeness only; B-1 says nothing about the model's own use of the map (that is the GPU step). The control map comes from another window, so it shares the GB-wide pasture-to-arable gradient only by chance.
+- Notes from the sandbox (step 59, before any real value; no rule change): L_w holds every surveyed tetrad (P4-0), so the W1 off-L_w share is 0 on BNM and W1 works as an orientation check; the planted one-arm bug drops the support rule from the control arm.

@@ -1,4 +1,4 @@
-# Objective 2 v2: handover for the next session (16 Nov 2026, step 58: M1 / M2 yes; B-1b rule written in full, waits for Sara's sign-off M3)
+# Objective 2 v2: handover for the next session (16 Nov 2026, step 59: B-1b rule signed (M3); stage_b1b_k2.py built, sandbox 17 PASS; waiting for Sara's B1b-A run log)
 
 This file was shortened on 15 Nov: the step-by-step history (steps 1-46) lives in the results logs and READMEs below, so it is not repeated here.
 
@@ -21,16 +21,16 @@ Read first, in this order: obj2_v2/README_stage_H_part2.md (status table and run
 - Step 56 (16 Nov): Sara asked for the guide as hand sketches with less text. First draft on the Design canvas "Objective 1 and BNM in hand sketches" (https://claude.ai/artifact/Uvjy2DKraqVMPDJVfiRWov): start-here board and sheets 1-5; scripts in claude/obj1_bnm_sketches/. Question D2: style OK, then sheets 6-17, road map and open issues in the same style.
 - Step 57 (16 Nov): Sara said the draft left out most of the guide; redrawn in full on the same canvas: 24 boards (start here, sheets 1-17 each with how / problems and fixes / settings / still open, road map 4a-4c, still open 5a-5c). Scripts in claude/obj1_bnm_sketches/. D2 now asks whether the boards read well when drawn by hand.
 - Step 58 (16 Nov): Sara said yes to M1 and M2. B-1b's rule written in full in H rules part 2 before any value: own map against window k + 22's map on the same far holes and kept records; PASS when AUC(own) - AUC(control) in S has its 95% interval above 0; real_val reference (8,174 habitat-shown stacks) report only; gates W0-W6. Waits for M3 (sign-off).
+- Step 59 (16 Nov): M3 yes. stage_b1b_k2.py (2ba374a6) with test_37 (b68db477); sandbox self-test 17 PASS with her real tools (torch 2.15.0 CPU installed so test_25's planted pipeline runs); block B1b-A in README_stage_H_part2.
 - Project space (15 Nov, step 53): after the earlier 17, 182 more project code files removed (all checked to be in the repo first; Sara's yes to S1); project now 734,923 of 2,000,000 (36.7%). The four stray .pyc removed (S2). Tools from B-1a on come through the repo (G3), so the project keeps only MD docs, the 8 kept files, temporal_checks/, the root-level v1 scripts and __init__.py.
 
 ## Next steps
 
 0. Sara checks the hand-sketch guide (step 57) and answers D1 and D2.
-1. Done (step 58): M1 and M2 yes; B-1b's rule written in full in H rules part 2.
-2. Sara signs B-1b's rule (M3). Then build stage_b1b_k2.py with test_37, sandbox-test it on planted data with her real tools from the repo clone (H2b, F0, stage_g_baselines, stage_d_headroom's partner rule), and send block B1b-A through the repo.
-3. B-1b result: if LCM minus control has its interval above 0 in S, B-2 next (go rule, 14 Nov); otherwise B stops and the paper states the habitat limit with B-0 and B-1 numbers.
-4. Then the Figure 2 draft (G1: blank rows) and the BNM species pages.
-5. Tools go to Sara through the repo: she runs git pull and copies the tool and test into obj2_v2/tools and obj2_v2/tests; md5 = the file as committed.
+1. Read Sara's B1b-A log (tool 2ba374a6, test b68db477): self-test 17 PASS, W0-W6, the S row of AUC(own) - AUC(control) (the rule), the support counts per group, and the real_val reference; log it in results log part 4 as the next step. If W1 or W3 fails, stop and find the cause before reading any rule value.
+2. B-1b result: if the S interval is above 0, B-2's rule is written in full next (step 41 plan, go rule 14 Nov); otherwise B stops and the paper states the habitat limit with the B-0 and B-1 numbers.
+3. Then the Figure 2 draft (G1: blank rows) and the BNM species pages.
+4. Tools go to Sara through the repo: she runs git pull and copies the tool and test into obj2_v2/tools and obj2_v2/tests; md5 = the file as committed. Sandbox: torch can be installed from PyPI (download the wheels, install offline) so her planted pipelines run with her real tools.
 
 ## Rules that never change after a result
 
