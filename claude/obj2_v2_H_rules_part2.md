@@ -63,3 +63,7 @@ Written 15 Nov before any B-1 value is read, from the step 41 plan (results log 
 - Limit stated now: one axis of land-cover composition at 2 km cannot hold every butterfly's habitat; B-1b measures whether it carries signal for the recorded species.
 
 ### B-1b, K2 on the fit-half holes (built after B-1a runs; details as step 41, to be written here in full before it runs)
+
+- B-1a ran 16 Nov (results log part 4, step 54): PC1 = pasture against arable (improved grassland +0.886, arable -0.424), 0.375 of the variance.
+- Found 16 Nov, before this rule is written and before any B-1b value (proposed, waits for Sara's M1): the control map is 0 where window k + 22 has sea or no score, so on coastal pairs many holes tie under the control and its AUC moves toward 0.5 for a reason unrelated to habitat. Proposed: both arms (LCM and control) scored on the same holes, those scored in both maps; the mean z at the kept records over kept records on tetrads scored in that arm's map; holes and stack-repeats dropped reported per group; a code gate that both arms use identical holes.
+- M2 (waits for Sara): PC1 kept as signed; no second axis tested.

@@ -1,11 +1,13 @@
-# Open questions for Sara (15 Nov 2026)
+# Open questions for Sara (16 Nov 2026)
 
 Questions put to Sara in earlier sessions that she has not answered yet. Each has a plain explanation, why it matters, and Claude's suggestion. When she answers, the answer and date go beside the question and the item moves to "Answered".
 
-## Open now (15 Nov, late)
+## Open now (16 Nov)
 
 | # | Question | Why it matters | Suggestion |
 |---|---|---|---|
+| M1 | B-1b: score the LCM map and the control map on the same holes only (holes scored in both maps) | the control window's sea gives 0 values, so coastal pairs tie many holes under the control and make it look weaker than it is; B-1b could pass for a reason unrelated to habitat | yes; report holes dropped per group |
+| M2 | B-1b: keep PC1 as signed, although it is a pasture against arable axis (improved grassland +0.886, arable -0.424) with little weight on semi-natural classes | changing the axis after seeing its loadings is a choice made after a result | yes; if B-1b fails, the paper names the axis in the habitat limit |
 | P3 | B-0 in the supplement | Sara wants more testing first (B-1, B-2) | ask after B-1 / B-2 |
 
 ## Later

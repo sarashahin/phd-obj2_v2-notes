@@ -1,4 +1,4 @@
-# Objective 2 v2: handover for the next session (15 Nov 2026 late, step 53: project cleaned up (182 removed, 36.7%), .pyc removed; waiting for Sara's B1a-A run log)
+# Objective 2 v2: handover for the next session (16 Nov 2026, step 54: B-1a run by Sara, all gates PASS; B-1b rule waits for M1 / M2)
 
 This file was shortened on 15 Nov: the step-by-step history (steps 1-46) lives in the results logs and READMEs below, so it is not repeated here.
 
@@ -16,14 +16,15 @@ Read first, in this order: obj2_v2/README_stage_H_part2.md (status table and run
 - T: stage_t_tiebreak.py (27631419) with test_35 (fb884828); Sara's run 15 Nov: self-test 13 PASS, gates V0-V4 PASS, t_report.json 1305724a; rule NO. Ties close 38-65% of the sparse gap; class 1 and records 4-6 stay below B1 exact. T fixes no root cause and changes no AOO.
 - Step 52 (15 Nov, late): the step 51 session was cut off before its reply; B-1a rechecked in a new sandbox (11 PASS); a path bug fixed before any run (map folder ../data/lcm2019_1km/data, as P3c and P4-0); version 2 committed and block B1a-A sent again.
 - Sara 15 Nov: K and S on hold; T recorded as a report-only finding. Figure answers: real_eval rows as "display reading 3, no scores", one species per recorded class, seed fixed first, plus one BNM row; Figure 2 and the BNM species pages (as v1) first; movie = denoising; journal Ecological Informatics; one paper; no v3 (v2 is final). Open questions: claude/obj2_v2_open_questions.md (G1-G3 before the Figure 2 draft; P3, R1, R2 asked again).
+- B-1a (Sara's run 16 Nov, step 54): self-test 11 PASS, gates J0-J4 PASS, b1a_habitat.npz fac95acf, b1a_report.json 71e2bedb. PC1 (0.375 of the variance) is pasture against arable (improved grassland +0.886, arable -0.424); semi-natural classes carry little weight. Found before B-1b's rule: the control map is 0 where the paired window has sea, which weakens the control on coastal pairs (M1).
 - Project space (15 Nov, step 53): after the earlier 17, 182 more project code files removed (all checked to be in the repo first; Sara's yes to S1); project now 734,923 of 2,000,000 (36.7%). The four stray .pyc removed (S2). Tools from B-1a on come through the repo (G3), so the project keeps only MD docs, the 8 kept files, temporal_checks/, the root-level v1 scripts and __init__.py.
 
 ## Next steps
 
-1. Read Sara's B1a-A log (version 2: tool 1ee98c85, test 853f8d2f): self-test 11 PASS, J0-J4, PC1 share and loadings (what the axis means); log it in results log part 4 as step 54. If J1 fails (grid or land rule differ from P4-0), stop and find the cause before any B-1b work.
-2. After the B1a-A log, write B-1b's rule in full in H rules part 2 (step 41 plan: K2 per stack-repeat on fit-half holes 3+ cells from every kept record, LCM map against the control map = window k+22, sparse set S, real_val reference on the 8,174 habitat-shown stacks; Sara signed this order). Then build and sandbox-test B-1b with her real tools from the repo clone. The rule is written before B-1b runs (not before B-1a), so rules-before-values holds; B-1a is only an input.
-3. Done (step 53): S1 (182 project files removed, checked against the repo first) and S2 (.pyc removed).
-4. Then the Figure 2 Draft (G1: blank rows) and the BNM species pages.
+1. Sara answers M1 (LCM and control scored on the same holes) and M2 (keep PC1 as signed).
+2. Write B-1b's rule in full in H rules part 2 (step 41 plan with M1 / M2: K2 per stack-repeat on fit-half holes 3+ cells from every kept record, LCM map against the control map = window k+22, sparse set S, real_val reference on the 8,174 habitat-shown stacks). Sara signs it; then build and sandbox-test B-1b (test_37) with her real tools from the repo clone; block B1b-A through the repo.
+3. B-1b result: if LCM minus control has its interval above 0 in S, B-2 next (go rule, 14 Nov); otherwise B stops and the paper states the habitat limit with B-0 and B-1 numbers.
+4. Then the Figure 2 draft (G1: blank rows) and the BNM species pages.
 5. Tools go to Sara through the repo: she runs git pull and copies the tool and test into obj2_v2/tools and obj2_v2/tests; md5 = the file as committed.
 
 ## Rules that never change after a result

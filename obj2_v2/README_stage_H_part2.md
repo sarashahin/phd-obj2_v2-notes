@@ -11,8 +11,8 @@ obj2_v2/README_stage_H.md holds the run blocks and status of H0-P4d; it reached 
 | T | Sara's yes 15 Nov; block T-A run by Sara 15 Nov: self-test 13 PASS, gates V0-V4 PASS, t_scores.npz 6f7f67ac, t_report.json 1305724a; rule NO (class 1 and records 4-6 still FAIL against B1 exact for both seeds); ties close 38-65% of the sparse gap; report only |
 | K | on hold (Sara 15 Nov) |
 | S | on hold (Sara 15 Nov) |
-| B-1a | Sara's yes 15 Nov (B-1 before Figure 2); rule in H rules part 2; stage_b1a_habitat_axis.py version 2 (1ee98c85) with test_36 (853f8d2f), sandbox 11 PASS; block B1a-A (version 2) sent through the repo; waiting for Sara's run |
-| B-1b | after B-1a runs; rule to be written in full first |
+| B-1a | Sara's yes 15 Nov (B-1 before Figure 2); rule in H rules part 2; stage_b1a_habitat_axis.py version 2 (1ee98c85) with test_36 (853f8d2f), sandbox 11 PASS; block B1a-A run by Sara 16 Nov: self-test 11 PASS, gates J0-J4 PASS, b1a_habitat.npz fac95acf, b1a_report.json 71e2bedb; PC1 0.375 of the variance, pasture against arable (improved grassland +0.886, arable -0.424) |
+| B-1b | rule to be written in full after Sara answers M1 (control scored on the same holes as the LCM map) and M2 (keep PC1); then build and sandbox |
 
 ```
 B-0 sketch
@@ -103,3 +103,5 @@ md5sum ../data/stage_b1a_habitat/*
 ```
 
 Verification line: md5 stage_b1a_habitat_axis.py 1ee98c8516bf14c8d2eccf48fdfd6947, test_36 853f8d2f44f3162ffd8637afe5f6c449 (version 2, copied from the repo, so the md5 is the file as committed; fingerprints af381e8a, 807cb26f), p4_0_report.json 842697b1acf4f8d6484e6d0f659d8b73, export_obj2.py 2685f91aac0c2fe89c9344abe112bd7b, stage_p3c_band_check.py 98faa2d95d1a96fa6680972c1100f3ca, map d66aac8836c89b317e9b6b0a09262c66, p4_windows.npz 928cf96c9bcbe9a14bb0f639adb581eb; "no stage_b1a_habitat"; self-test 11 lines PASS and "11 PASS, 0 FAIL"; J0 every part True; J1 "44 fit-half windows ... 0 tetrads differ"; J2 |cos| 1.000000000000 and every difference at 1e-9 or less; J3 1 file; J4 PASS; last line "stage B-1a: gates 5 PASS, 0 FAIL; habitat axis PC1 (...) for 44 fit-half windows". Send the whole log.
+
+B-1a result (Sara's run, 16 Nov): every md5 as sent; "no stage_b1a_habitat" before; self-test 11 PASS; gates J0-J4 PASS (J1 0 tetrads differ; J2 |cos| 1.000000000000, every difference 3.3e-16 or less; J3 1 file); b1a_habitat.npz fac95acff9353bbc583c081df90a9b43, b1a_report.json 71e2bedb034d72e3ef240330a9dcae23. PC1 0.375 of the variance: improved grassland +0.886, arable -0.424, acid grassland -0.136. Found before B-1b's rule: the control map is 0 where the paired window has sea, which weakens the control for a reason unrelated to habitat (questions M1, M2). Numbers and reading: results log part 4, step 54.
