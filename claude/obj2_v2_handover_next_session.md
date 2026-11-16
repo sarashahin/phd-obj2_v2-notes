@@ -1,4 +1,4 @@
-# Objective 2 v2: handover for the next session (16 Nov 2026, step 56: hand-sketch draft of the drawing guide; B-1b rule waits for M1 / M2)
+# Objective 2 v2: handover for the next session (16 Nov 2026, step 57: full hand-sketch guide, 24 boards; B-1b rule waits for M1 / M2)
 
 This file was shortened on 15 Nov: the step-by-step history (steps 1-46) lives in the results logs and READMEs below, so it is not repeated here.
 
@@ -19,11 +19,12 @@ Read first, in this order: obj2_v2/README_stage_H_part2.md (status table and run
 - B-1a (Sara's run 16 Nov, step 54): self-test 11 PASS, gates J0-J4 PASS, b1a_habitat.npz fac95acf, b1a_report.json 71e2bedb. PC1 (0.375 of the variance) is pasture against arable (improved grassland +0.886, arable -0.424); semi-natural classes carry little weight. Found before B-1b's rule: the control map is 0 where the paired window has sea, which weakens the control on coastal pairs (M1).
 - Step 55 (16 Nov, Sara asked after the N33 session was flagged and its sketches were not readable): a hand-drawing guide to the Objective 1 and BNM pipeline, pipeline only, no results: 17 sheets (simulator, BNM data, comparison), a road map of every cause and fix, and the issues still open. Claude Doc "Objective 1 and BNM: a hand-drawing guide to the pipeline" (https://claude.ai/artifact/5z3KzD5fPt6XtTkxPTP8Ve, 18 drawings); text in claude/obj1_bnm_drawing_guide.md. Open question D1: extend it to Objectives 2-4 in the same format.
 - Step 56 (16 Nov): Sara asked for the guide as hand sketches with less text. First draft on the Design canvas "Objective 1 and BNM in hand sketches" (https://claude.ai/artifact/Uvjy2DKraqVMPDJVfiRWov): start-here board and sheets 1-5; scripts in claude/obj1_bnm_sketches/. Question D2: style OK, then sheets 6-17, road map and open issues in the same style.
+- Step 57 (16 Nov): Sara said the draft left out most of the guide; redrawn in full on the same canvas: 24 boards (start here, sheets 1-17 each with how / problems and fixes / settings / still open, road map 4a-4c, still open 5a-5c). Scripts in claude/obj1_bnm_sketches/. D2 now asks whether the boards read well when drawn by hand.
 - Project space (15 Nov, step 53): after the earlier 17, 182 more project code files removed (all checked to be in the repo first; Sara's yes to S1); project now 734,923 of 2,000,000 (36.7%). The four stray .pyc removed (S2). Tools from B-1a on come through the repo (G3), so the project keeps only MD docs, the 8 kept files, temporal_checks/, the root-level v1 scripts and __init__.py.
 
 ## Next steps
 
-0. Sara checks the drawing guide (step 55) and the sketch draft (step 56), and answers D1 and D2.
+0. Sara checks the hand-sketch guide (step 57) and answers D1 and D2.
 1. Sara answers M1 (LCM and control scored on the same holes) and M2 (keep PC1 as signed).
 2. Write B-1b's rule in full in H rules part 2 (step 41 plan with M1 / M2: K2 per stack-repeat on fit-half holes 3+ cells from every kept record, LCM map against the control map = window k+22, sparse set S, real_val reference on the 8,174 habitat-shown stacks). Sara signs it; then build and sandbox-test B-1b (test_37) with her real tools from the repo clone; block B1b-A through the repo.
 3. B-1b result: if LCM minus control has its interval above 0 in S, B-2 next (go rule, 14 Nov); otherwise B stops and the paper states the habitat limit with B-0 and B-1 numbers.

@@ -11,7 +11,9 @@ BLUE = "#2f5fa7"
 ORANGE = "#e0892e"
 RED = "#b4432a"
 PAPER = "#fbf8f1"
-W, H = 1123, 794
+W, H = 1400, 990
+GREEN = "#4f8a4b"
+DRED = "#a3381f"
 
 
 def esc(s):
@@ -19,7 +21,9 @@ def esc(s):
 
 
 class Board:
-    def __init__(self, seed):
+    def __init__(self, seed, w=None, h=None):
+        self.W = w or W
+        self.H = h or H
         self.r = random.Random(seed)
         self.paths = []
         self.labels = []
@@ -44,7 +48,7 @@ class Board:
         ux, uy = (x2 - x1) / L, (y2 - y1) / L
         x1, y1, x2, y2 = x1 - ux * over, y1 - uy * over, x2 + ux * over, y2 + uy * over
         nx, ny = -uy, ux
-        amp = min(3.0, 0.4 + L * 0.008) * rough
+        amp = min(2.2, 0.3 + L * 0.006) * rough
         for p in range(passes):
             ax, ay = x1 + self.j(rough * 0.8), y1 + self.j(rough * 0.8)
             bx, by = x2 + self.j(rough), y2 + self.j(rough)
@@ -54,7 +58,7 @@ class Board:
             c2x = ax + (bx - ax) * 0.67 + nx * bow * 0.7 + self.j(rough * 0.5)
             c2y = ay + (by - ay) * 0.67 + ny * bow * 0.7 + self.j(rough * 0.5)
             d = f"M{ax:.1f} {ay:.1f} C{c1x:.1f} {c1y:.1f} {c2x:.1f} {c2y:.1f} {bx:.1f} {by:.1f}"
-            self._p(d, stroke, w if p == 0 else w * 0.5, 1.0 if p == 0 else 0.55, dash)
+            self._p(d, stroke, w if p == 0 else w * 0.45, 1.0 if p == 0 else 0.4, dash)
 
     @staticmethod
     def _smooth(pts, closed=False):
@@ -274,10 +278,11 @@ class Board:
 
     # ---------- output ----------
     def html(self, title, alt):
-        svg = (f'<svg role="img" aria-label="{esc(alt)}" width="{W}" height="{H}" viewBox="0 0 {W} {H}" '
-               f'style="position: absolute; left: 0px; top: 0px; width: {W}px; height: {H}px">'
+        Wd, Hd = self.W, self.H
+        svg = (f'<svg role="img" aria-label="{esc(alt)}" width="{Wd}" height="{Hd}" viewBox="0 0 {Wd} {Hd}" '
+               f'style="position: absolute; left: 0px; top: 0px; width: {Wd}px; height: {Hd}px">'
                + "".join(self.paths) + "</svg>")
-        root = (f'<div style="position: relative; width: {W}px; height: {H}px; overflow: hidden; background: {PAPER}; '
+        root = (f'<div style="position: relative; width: {Wd}px; height: {Hd}px; overflow: hidden; background: {PAPER}; '
                 f"font-family: 'Patrick Hand', 'Segoe Print', cursive; color: {INK}\">")
         return f"""<!doctype html>
 <html lang="en">
@@ -299,7 +304,7 @@ body{{margin:0}}
 {chr(10).join(self.labels)}
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{{"$preview":{{"width":{W},"height":{H}}}}}'>
+<script type="text/x-dc" data-dc-script data-props='{{"$preview":{{"width":{Wd},"height":{Hd}}}}}'>
 class Component extends DCLogic {{
 renderVals() {{
 return {{}};

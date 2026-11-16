@@ -23,9 +23,13 @@ def main(indir, outdir, names):
     os.makedirs(outdir, exist_ok=True)
     with sync_playwright() as p:
         br = p.chromium.launch(executable_path="/usr/bin/google-chrome", args=["--allow-file-access-from-files"])
-        pg = br.new_page(viewport={"width": 1123, "height": 794})
+        pg = br.new_page(viewport={"width": 1400, "height": 990})
         for n in names:
-            html = plain(open(os.path.join(indir, n)).read())
+            src = open(os.path.join(indir, n)).read()
+            m = re.search(r'"\$preview":\{"width":(\d+),"height":(\d+)\}', src)
+            if m:
+                pg.set_viewport_size({"width": int(m.group(1)), "height": int(m.group(2))})
+            html = plain(src)
             tmp = os.path.join(outdir, n.replace(".dc.html", ".html"))
             open(tmp, "w").write(html)
             pg.goto("file://" + tmp)
